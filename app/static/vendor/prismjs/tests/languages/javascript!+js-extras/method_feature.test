@@ -1,0 +1,34 @@
+foo.bar();
+foo.bar.call();
+this.#bar();
+
+----------------------------------------------------
+
+[
+	"foo",
+	["punctuation", "."],
+	["method", ["bar"]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\r\nfoo",
+	["punctuation", "."],
+	["method", ["bar"]],
+	["punctuation", "."],
+	["method", ["call"]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "this"],
+	["punctuation", "."],
+	["method", ["#bar"]],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"]
+]
+
+----------------------------------------------------
+
+Checks for methods.

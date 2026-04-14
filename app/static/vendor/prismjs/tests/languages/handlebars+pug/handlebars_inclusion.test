@@ -1,0 +1,17 @@
+:handlebars
+	{{!comment}}
+
+----------------------------------------------------
+
+[
+	["filter-handlebars", [
+		["filter-name", ":handlebars"],
+		["text", [
+			["comment", "{{!comment}}"]
+		]]
+	]]
+]
+
+----------------------------------------------------
+
+Checks for handlebars filter in pug.

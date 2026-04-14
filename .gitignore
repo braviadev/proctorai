@@ -1,0 +1,12 @@
+# Environments
+proctoraienv/
+venv/
+__pycache__/
+.vs/
+
+# Secrets
+.env
+
+# Database/Logs
+*.sqlite3
+*.log

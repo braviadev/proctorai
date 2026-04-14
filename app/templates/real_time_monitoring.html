@@ -1,0 +1,118 @@
+{% extends 'student_dashboard.html' %}
+{% block body %}
+<div class="row align-items-center d-flex  justify-content-center">
+    <div class="col-12 mb-4">
+        <div class="card border-light shadow-sm components-section align-items-center d-flex  justify-content-center">
+            <div class="card-body align-items-center d-flex justify-content-center">     
+                <div class="row mb-4">
+                    <div class="col-lg-12 col-sm-16">
+
+                        <div class="container">
+                            <h1>Background activities detection: monitoring unauthorized behavior</h1>
+
+                                <div id="status">
+                                    <h2>Current Status</h2>
+                                        <p><strong>Timestamp:</strong> <span id="timestamp">Connecting...</span></p>
+                                        <p><span id="voice-indicator" class="indicator false"></span><strong>Voice Detected:</strong> <span id="voice-status">False</span></p>
+                                        <p><span id="noise-indicator" class="indicator false"></span><strong>Noise Detected:</strong> <span id="noise-status">False</span></p>
+                                        <p><span id="sound-indicator" class="indicator false"></span><strong>Sound Detected:</strong> <span id="sound-status">False</span></p>
+                                        <p><strong>Status Message:</strong> <span id="message">Initializing...</span></p>
+                                        <div id="conducive-status" class="true">Environment is CONDUCIVE</div>
+                                </div>
+
+                                    <h2>Detection Log (Real-time)</h2>
+                                        <div id="log">
+                                            <div>Connecting to event stream...</div>
+                                        </div>
+                                            <p><small>Full log available at <a href="/log" target="_blank">/log</a></small></p>
+                                        </div>
+                                <script>
+                                    const timestampEl = document.getElementById('timestamp');
+                                    const voiceStatusEl = document.getElementById('voice-status');
+                                    const noiseStatusEl = document.getElementById('noise-status');
+                                    const soundStatusEl = document.getElementById('sound-status');
+                                    const voiceIndicatorEl = document.getElementById('voice-indicator');
+                                    const noiseIndicatorEl = document.getElementById('noise-indicator');
+                                    const soundIndicatorEl = document.getElementById('sound-indicator');
+                                    const messageEl = document.getElementById('message');
+                                    const conduciveStatusEl = document.getElementById('conducive-status');
+                                    const logEl = document.getElementById('log');
+
+                                    // Function to add log entry and scroll
+                                    function addLogEntry(logData) {
+                                        const logEntry = document.createElement('div');
+                                        const time = new Date(logData.timestamp).toLocaleTimeString();
+                                        let indicatorClass = 'log-info'; // Default
+                                        if (!logData.conducive) {
+                                             indicatorClass = 'log-warning'; // Warning for non-conducive
+                                        }
+                                         if (logData.message && logData.message.startsWith('ERROR')) {
+                                            indicatorClass = 'log-error'; // Error style
+                                         }
+
+                                        logEntry.innerHTML = `<span class="${indicatorClass}">[${time}]</span> ${logData.message}`;
+                                        // Prepend new entries to the top
+                                        logEl.insertBefore(logEntry, logEl.firstChild);
+
+                                         // Optional: Limit log size in browser to prevent memory issues
+                                        const maxLogEntries = 200;
+                                        if (logEl.children.length > maxLogEntries) {
+                                            logEl.removeChild(logEl.lastChild);
+                                        }
+                                    }
+
+
+                                    // Connect to the SSE endpoint
+                                    const eventSource = new EventSource('/stream');
+
+                                    logEl.innerHTML = '<div>Connecting to event stream...</div>'; // Clear initial message
+
+                                    eventSource.onmessage = function(event) {
+                                        // Parse the JSON data received from the server
+                                        const status = JSON.parse(event.data);
+
+                                        // Update status indicators
+                                        timestampEl.textContent = new Date(status.timestamp).toLocaleString();
+                                        voiceStatusEl.textContent = status.voice_detected;
+                                        noiseStatusEl.textContent = status.noise_detected;
+                                        soundStatusEl.textContent = status.sound_detected;
+                                        messageEl.textContent = status.message;
+
+                                        // Update indicator colors (red if true, green if false)
+                                        voiceIndicatorEl.className = `indicator ${status.voice_detected}`;
+                                        noiseIndicatorEl.className = `indicator ${status.noise_detected}`;
+                                        soundIndicatorEl.className = `indicator ${status.sound_detected}`;
+
+                                        // Update overall conducive status display
+                                        if (status.conducive) {
+                                            conduciveStatusEl.textContent = 'Environment is CONDUCIVE';
+                                            conduciveStatusEl.className = 'true';
+                                        } else {
+                                            conduciveStatusEl.textContent = 'ALERT: Environment is NOT CONDUCIVE for exams!';
+                                            conduciveStatusEl.className = 'false';
+                                        }
+
+                                        // Add the status message to the log
+                                        addLogEntry(status);
+                                    };
+
+                                    eventSource.onerror = function(err) {
+                                        console.error("EventSource failed:", err);
+                                        messageEl.textContent = "Connection error to server stream.";
+                                        conduciveStatusEl.textContent = 'ERROR: Cannot determine status';
+                                        conduciveStatusEl.className = 'false';
+                                         addLogEntry({ timestamp: new Date().toISOString(), message: "ERROR: Lost connection to server stream.", conducive: false });
+                                        // Optionally try to reconnect or close
+                                        // eventSource.close();
+                                    };
+
+                                     // Clear log on initial load if needed, or show loading message
+                                    // logEl.innerHTML = '';
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+{% endblock %}

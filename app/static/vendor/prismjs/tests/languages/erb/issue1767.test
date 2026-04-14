@@ -1,0 +1,62 @@
+<%# this is a block comment %>
+<%
+=begin %>
+	block comment
+	(both lines of both the begin and end tags must be at the start of their lines)
+<%
+=end %>
+
+<%# this is not %>
+	<%
+	=begin %>
+	not a comment
+	<%
+	=end %>
+
+----------------------------------------------------
+
+[
+	["erb", [
+		["delimiter", "<%"],
+		["ruby", [
+			["comment", "# this is a block comment "]
+		]],
+		["delimiter", "%>"]
+	]],
+	["erb", [
+		["delimiter", "<%"],
+		["ruby", [
+			["comment", "=begin %>\r\n\tblock comment\r\n\t(both lines of both the begin and end tags must be at the start of their lines)\r\n<%\r\n=end"]
+		]],
+		["delimiter", "%>"]
+	]],
+
+	["erb", [
+		["delimiter", "<%"],
+		["ruby", [
+			["comment", "# this is not "]
+		]],
+		["delimiter", "%>"]
+	]],
+	["erb", [
+		["delimiter", "<%"],
+		["ruby", [
+			["operator", "="],
+			["keyword", "begin"]
+		]],
+		["delimiter", "%>"]
+	]],
+	"\r\n\tnot a comment\r\n\t",
+	["erb", [
+		["delimiter", "<%"],
+		["ruby", [
+			["operator", "="],
+			["keyword", "end"]
+		]],
+		["delimiter", "%>"]
+	]]
+]
+
+----------------------------------------------------
+
+Checks for block comments (#1767).
