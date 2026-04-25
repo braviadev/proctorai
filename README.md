@@ -6,7 +6,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## 📌 Overview
-ProctorAI is an intelligent, multimodal AI system designed to ensure the integrity of remote assessments through real-time behavioral understanding. Developed initially as a Master's research project at Kwara State University, this system moves beyond simple binary "cheating" flags by leveraging environmental perception to detect disruptive sounds and unauthorized visual infractions. [https://www.xn--brava-2sa.com/academic-writings/dissertation/proctoring-dissertation.pdf](https://www.xn--brava-2sa.com/academic-writings/dissertation/proctoring-dissertation.pdf).
+ProctorAI is an intelligent, multimodal AI system designed to ensure the integrity of remote assessments through real-time behavioral understanding. Developed initially as a Master's research project at Kwara State University, this system moves beyond simple binary "cheating" flags by leveraging environmental perception to detect disruptive sounds and unauthorized visual infractions. [https://www.bravía.com/academic-writings/dissertation/proctoring-dissertation.pdf](https://www.bravía.com/academic-writings/dissertation/proctoring-dissertation.pdf).
 
 The core philosophy of this project is advancing **Trustworthy and Explainable AI** in education, reducing false positives, and providing context-aware anomaly detection.
 
@@ -27,8 +27,8 @@ ProctorAI operates on a decoupled architecture designed for scalability and real
 
 ## 📚 Related Publications
 The methodologies and foundational research for this repository have been published in peer-reviewed journals:
-1. *An Enhanced Web-Based Examination System using Automated Proctoring and Background Activity Detection.* (JIRBDAI) *[https://www.xn--brava-2sa.com/academic-writings/publication/1-toyyib-et-al.pdf](https://www.xn--brava-2sa.com/academic-writings/publication/1-toyyib-et-al.pdf)*.
-2. *Implementing an AI-Driven Proctoring System: Real-Time Detection of Disruptive Sounds and Unauthorized Visual Infractions.* (IJERD) *[https://www.xn--brava-2sa.com/academic-writings/publication/4-olanrewaju-et-al.pdf](https://www.xn--brava-2sa.com/academic-writings/publication/4-olanrewaju-et-al.pdf)*.
+1. *An Enhanced Web-Based Examination System using Automated Proctoring and Background Activity Detection.* (JIRBDAI) *[https://www.bravía.com/academic-writings/publication/1-toyyib-et-al.pdf](https://www.bravía.com/academic-writings/publication/1-toyyib-et-al.pdf)*.
+2. *Implementing an AI-Driven Proctoring System: Real-Time Detection of Disruptive Sounds and Unauthorized Visual Infractions.* (IJERD) *[https://www.bravía.com/academic-writings/publication/4-olanrewaju-et-al.pdf](https://www.bravía.com/academic-writings/publication/4-olanrewaju-et-al.pdf)*.
 
 ## 🔮 Roadmap (Future PhD Research Extension)
 This repository serves as the foundation for upcoming doctoral research focused on **Multimodal Fusion and Trustworthy AI**. Planned architecture updates include:
