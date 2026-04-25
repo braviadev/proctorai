@@ -49,4 +49,4 @@ cd proctorai
 pip install -r requirements.txt
 
 # Run the Flask development server
-python app.py
+python run.py
