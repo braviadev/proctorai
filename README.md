@@ -40,7 +40,7 @@ This repository serves as the foundation for upcoming doctoral research focused 
 *(Provide brief instructions here on how to run your code locally. Example below:)*
 ```bash
 # Clone the repository
-git clone [https://github.com/braviadev/proctorai.git](https://github.com/braviadev/proctorai.git)
+git clone https://github.com/braviadev/proctorai.git
 
 # Navigate into the directory
 cd proctorai
