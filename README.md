@@ -8,10 +8,6 @@
 ## 📌 Overview
 ProctorAI is an intelligent, multimodal AI system designed to ensure the integrity of remote assessments through real-time behavioral understanding. Developed initially as a Master's research project at Kwara State University, this system moves beyond simple binary "cheating" flags by leveraging environmental perception to detect disruptive sounds and unauthorized visual infractions. [https://www.bravía.com/academic-writings/dissertation/proctoring-dissertation.pdf](https://www.bravía.com/academic-writings/dissertation/proctoring-dissertation.pdf).
 
-# ProctorAI Exam Environment
-
-This repository contains visual records and logs related to the proctor system.
-
 ## Environment Conditions
 
 ### Under Conductive Environment
