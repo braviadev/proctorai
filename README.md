@@ -8,6 +8,11 @@
 ## 📌 Overview
 ProctorAI is an intelligent, multimodal AI system designed to ensure the integrity of remote assessments through real-time behavioral understanding. Developed initially as a Master's research project at Kwara State University, this system moves beyond simple binary "cheating" flags by leveraging environmental perception to detect disruptive sounds and unauthorized visual infractions. [https://www.bravía.com/academic-writings/dissertation/proctoring-dissertation.pdf](https://www.bravía.com/academic-writings/dissertation/proctoring-dissertation.pdf).
 
+[Under Conductive Environment.](https://github.com/braviadev/proctorai/blob/main/public/images/Picture1.png)
+[Not Conductive Environment.](https://github.com/braviadev/proctorai/blob/main/public/images/Picture2.png)
+[CPU log of exam activity.](https://github.com/braviadev/proctorai/blob/main/public/images/Picture3.png)
+[Testing Face Authentication Before Granting Access to the Proctor System.](https://github.com/braviadev/proctorai/blob/main/public/images/Picture4.png)
+
 The core philosophy of this project is advancing **Trustworthy and Explainable AI** in education, reducing false positives, and providing context-aware anomaly detection.
 
 ## 🚀 Key Features
